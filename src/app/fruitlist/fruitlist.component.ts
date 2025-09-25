@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Singlefruit } from './singlefruit/singlefruit';
 
 @Component({
   selector: 'app-fruitlist',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Singlefruit],
   templateUrl: './fruitlist.component.html',
   styleUrls: ['./fruitlist.component.scss'],
 })
@@ -79,4 +80,12 @@ export class FruitlistComponent {
       ],
     },
   ];
+
+  addComment(comment: string, index: number) {
+    this.fruitlist[index].reviews.push({ name: "Paul", text: comment });
+  }
+
+  nameLog(name: string) {
+    console.log(name)
+  }
 }
